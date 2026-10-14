@@ -44,3 +44,29 @@ A V2 foi selecionada por apresentar maior relevancia nas respostas avaliadas. Ai
 Arquivos de avaliacao:
 - evals/results_v1_qwen3_8b.json
 - evals/results_v2_qwen3_8b.json
+
+## Evolução da V3
+
+A terceira versão manteve a base vetorial da V2 e introduziu um novo prompt, com orientação explícita para responder em português brasileiro.
+
+Também foi implementada uma busca direcionada ao manual GW_HCA-G2_User Manual-EN.pdf para perguntas relacionadas à instalação e segurança dos carregadores.
+
+### Comparação funcional
+
+| Teste | V1 | V2 | V3 |
+|---|---|---|---|
+| Modelos HCA G2 | Modelos incompletos | Correto | Correto |
+| Segurança na instalação | Falhou | Recusou | Respondeu |
+| Plataforma SEMS+ | Respondeu | Respondeu | Respondeu |
+| Fora do escopo | Recusou | Recusou | Recusou |
+| Prompt injection | Recusou | Recusou | Recusou |
+
+A V3 recuperou informações relevantes sobre segurança nas páginas 3, 9 e 10 do manual HCA G2, enquanto a V2 recuperava trechos sem relação direta com a instalação.
+
+A avaliação foi funcional e manual, não corresponde a uma execução oficial do RAGAS.
+
+### Limitações
+
+A busca direcionada utiliza uma consulta fixa em inglês e foi implementada especificamente para perguntas sobre instalação e segurança. Ainda precisa ser generalizada para outros modelos e tipos de pergunta.
+
+Uma referência da resposta V3 sobre qualificação profissional aponta para a página 5, que contém o índice. Essa afirmação precisa de validação documental adicional.

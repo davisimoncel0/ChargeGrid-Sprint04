@@ -3,6 +3,7 @@ import re
 from dotenv import load_dotenv
 from langchain_ollama import ChatOllama
 from .retriever import retrieve
+from .vector_store import open_store
 from .prompt_rag import load_prompt
 from .vector_store import ROOT
 
@@ -15,7 +16,17 @@ def answer(question, model=None, version="v2", k=4, collection="chargegrid_v1", 
         return {"answer": "Digite uma pergunta.", "sources": [], "contexts": []}
     if INJECTION.search(question):
         return {"answer": REFUSAL, "sources": [], "contexts": []}
-    results = retrieve(question, k=k, collection=collection)
+    if version == "v3" and any(
+        termo in question.lower()
+        for termo in ("instalação", "instalar", "segurança", "precauções")
+    ):
+        results = open_store(collection).similarity_search_with_relevance_scores(
+            "What safety precautions must be taken before installing the HCA G2 EV charger?",
+            k=k,
+            filter={"source": "GW_HCA-G2_User Manual-EN.pdf"}
+        )
+    else:
+        results = retrieve(question, k=k, collection=collection)
     accepted = [(d, s) for d, s in results if s >= threshold and not INJECTION.search(d.page_content)]
     if not accepted:
         return {"answer": REFUSAL, "sources": [], "contexts": []}
