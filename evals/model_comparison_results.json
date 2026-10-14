@@ -1,0 +1,24 @@
+[
+  {
+    "model": "qwen3:8b",
+    "total": 8,
+    "adequadas": 8,
+    "parcialmente_adequadas": 0,
+    "inadequadas": 0,
+    "nota_eval_percentual": 100.0,
+    "latencia_media_ms": 18638.79,
+    "tokens_medios_turno_aprox": 125.5,
+    "structured_output_accuracy_percent": 100.0
+  },
+  {
+    "model": "llama3.2:3b",
+    "total": 8,
+    "adequadas": 2,
+    "parcialmente_adequadas": 0,
+    "inadequadas": 6,
+    "nota_eval_percentual": 25.0,
+    "latencia_media_ms": 3625.18,
+    "tokens_medios_turno_aprox": 164.5,
+    "structured_output_accuracy_percent": 25.0
+  }
+]

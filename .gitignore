@@ -1,0 +1,23 @@
+# Credenciais
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+
+# IDE / SO
+.DS_Store
+.vscode/
+.idea/
+
+# Resultados locais temporarios
+evals/_tmp/
+
+# Vetores gerados localmente
+data/chroma/
+# Resultados que exigem execucao real

@@ -1,0 +1,22 @@
+# Sprint 03 - LangChain Foundations
+langchain>=0.3.27,<0.4.0
+langchain-core>=0.3.72,<0.4.0
+langchain-ollama>=0.3.6,<0.4.0
+pydantic>=2.8,<3.0
+python-dotenv>=1.0,<2.0
+tiktoken>=0.7,<1.0
+transformers>=4.44,<5.0
+
+# Mantido para reexecutar a versao legada das Sprints 1/2
+huggingface-hub>=0.23.0
+
+# Geracao do relatorio PDF
+reportlab>=4.2,<5.0
+
+# Sprint 04 - RAG e interface
+langchain-community>=0.3,<0.4
+langchain-text-splitters>=0.3,<0.4
+langchain-chroma>=0.2,<0.3
+chromadb>=0.5,<1.0
+pymupdf>=1.24
+gradio>=5,<6
